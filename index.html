@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lư Xuân Dương - Data Analytics Portfolio</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        
+        /* Custom gradient */
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #10b981);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Project card hover effect */
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+
+
+<body class="bg-gray-50 font-sans text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-sm z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="text-xl font-bold gradient-text">Duong</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-gray-600 hover:text-blue-600 transition">About</a>
+                    <a href="#projects" class="text-gray-600 hover:text-blue-600 transition">Projects</a>
+                   <!-- <a href="#certificates" class="text-gray-600 hover:text-blue-600 transition">Certificates</a> -->
+                    <a href="https://github.com/xuanduong2711" target="_blank" class="flex items-center text-gray-600 hover:text-blue-600 transition">
+                        <i class="fab fa-github mr-1"></i> GitHub
+                    </a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="menu-toggle" class="text-gray-600 hover:text-blue-600 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg">
+            <a href="#about" class="block py-2 text-gray-600 hover:text-blue-600 transition">About</a>
+            <a href="#projects" class="block py-2 text-gray-600 hover:text-blue-600 transition">Projects</a>
+            <!-- <a href="#certificates" class="block py-2 text-gray-600 hover:text-blue-600 transition">Certificates</a> -->
+            <a href="https://github.com/xuanduong2711" target="_blank" class="block py-2 text-gray-600 hover:text-blue-600 transition">
+                <i class="fab fa-github mr-1"></i> GitHub
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 md:pt-32 md:pb-24 px-4">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-12 md:mb-0 animate-fade-in delay-100">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Lư Xuân Dương</h1> 
+                <h2 class="text-2xl md:text-3xl font-semibold mb-6 gradient-text">Data Science Student & Aspiring Data Analysis </h2>
+                <p class="text-lg text-gray-600 mb-8 max-w-lg">
+                    Uncovering actionable insights and solving complex data problems through analytical thinking, data visualization, and statistical modeling.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#projects" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition shadow-md">
+                        View Projects
+                    </a>
+                    <a href="#contact" class="px-6 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center animate-fade-in delay-200">
+                <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
+                    <img src="https://xuanduongvn.github.io/img/image.jpg" alt="Lư Xuân Dương" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center animate-fade-in">About Me</h2>
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-2/3 animate-fade-in delay-100">
+                    <p class="text-lg text-gray-600 mb-6">
+                        Hello! I'm Lư Xuân Dương, a 21-year-old third-year student at the University of Science, VNU-HCMC, majoring in Data Science. With a deep passion for science and technology, I discovered my enthusiasm for data, logical thinking, and system programming early in my academic journey.
+                    </p>
+                    <p class="text-lg text-gray-600">
+                        This passion has shaped my ambition to become a data analyst, specializing in uncovering insights through data exploration and visualization. Currently, I am focused on strengthening my skills in data analysis, statistical modeling, and business intelligence tools. I am eager to apply my analytical mindset to solve real-world problems, support data-driven decisions, and drive meaningful impact for organizations.
+                    </p>
+                </div>
+                <div class="md:w-1/3 animate-fade-in delay-200">
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-sm">
+                        <h3 class="text-xl font-semibold mb-4">Education</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-medium">University of Science, VNU-HCMC</h4>
+                                <p class="text-gray-600">Data Science Major</p>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Expected Graduation</h4>
+                                <p class="text-gray-600">2026</p>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">GPA</h4>
+                                <p class="text-gray-600">3.48/4.00</p>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Location</h4>
+                                <p class="text-gray-600">Ho Chi Minh City, Vietnam</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 px-4 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center animate-fade-in">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1 -->
+                <div class="project-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition animate-fade-in delay-300">
+                    <h3 class="text-xl font-bold mb-2">House Price Prediction</h3>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">Data Science</span>
+                        <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">LLMs</span>
+                        <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">Feature Extraction</span>
+                        <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">EDA</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">Developed a predictive model to estimate house prices based on collected features, conducting comprehensive EDA and visualization.</p>
+                    <div class="text-sm text-gray-500 mb-4">
+                        <div class="flex justify-between">
+                            <span>May 2024 – June 2024</span>
+                            <span>Team of 4</span>
+                        </div>
+                        <div>Team Leader</div>
+                    </div>
+                    <a href="https://github.com/xuanduong2711/Duong20232024_khdl" target="_blank" class="text-blue-600 hover:text-blue-800 inline-flex items-center">
+                        View on GitHub <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                    </a>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition animate-fade-in delay-300">
+                    <h3 class="text-xl font-bold mb-2">Body Performance Data Analysis</h3>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Data Analysis</span>
+                        <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">A/B Testing</span>
+                        <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">ANOVA</span>
+                        <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Classification</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Applied A/B Testing and one-way ANOVA to evaluate statistical differences in performance across age groups and gender. Built classification models (Multinomial Logistic Regression, LDA, QDA, Random Forest) achieving an F1-score of 74% in predicting training effectiveness. Key insights were visualized to provide actionable recommendations for health professionals.
+                    </p>
+                    <div class="text-sm text-gray-500 mb-4">
+                        <div class="flex justify-between">
+                            <span>March 2024 – April 2024</span>
+                        </div>
+                        <div>Data Analyst</div>
+                    </div>
+                    <a href="https://github.com/xuanduong2711/BODY_PERFORMANCE" target="_blank" class="text-blue-600 hover:text-blue-800 inline-flex items-center">
+                        View on GitHub <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition animate-fade-in delay-300">
+                    <h3 class="text-xl font-bold mb-2">Financial Sales & Profit Dashboard</h3>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full">Data Visualization</span>
+                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full">Power BI</span>
+                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full">Business Analysis</span>
+                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full">Finance</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Built an interactive Power BI dashboard using a financial dataset (Country, Product, Discount Band, Date, Sales, Profit) to analyze business performance. Visualized total sales and profit by country, discount band, and time (monthly/yearly). Uncovered key insights such as top-performing products, high-profit segments, and the revenue impact of discount strategies.
+                    </p>
+                    <div class="text-sm text-gray-500 mb-4">
+                        <div class="flex justify-between">
+                            <span>May 2025</span>
+                            <span>Individual Project</span>
+                        </div>
+                        <div>Business Intelligence Analyst</div>
+                    </div>
+                    <a href="https://github.com/xuanduong2711/financial-sales-dashboard" target="_blank" class="text-blue-600 hover:text-blue-800 inline-flex items-center">
+                        View on GitHub <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                    </a>
+                </div>
+
+                                
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section 
+    <section id="certificates" class="py-16 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center animate-fade-in">Certificates</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Certificate 1 --
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm flex animate-fade-in delay-100">
+                    <div class="w-20 h-20 flex-shrink-0 mr-4">
+                        <img src="https://th.bing.com/th/id/OIP.-0-yLPAvjdvS1RzehU_HAQAAAA?w=176&h=132&c=7&r=0&o=5&pid=1.7" alt="IIG Vietnam Logo" class="w-full h-full object-contain">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">TOEIC Listening and Reading</h3>
+                        <p class="text-gray-600 mb-1">Issued by IIG Vietnam</p>
+                        <p class="text-gray-600 mb-1">Score 840/990</p>
+                        <p class="text-gray-600 mb-1">Issue Date 2024</p>
+                        <p class="text-gray-600 mb-2">Status Active</p>
+                        <a href="https://drive.google.com/file/d/1blAtILedRacecl7rs_ePZ3w8RgkOQqdL/view?usp=drive_link" target="_blank" class="text-blue-600 hover:text-blue-800 inline-flex items-center">
+                            View Certificate <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Certificate 2 --
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm flex animate-fade-in delay-200">
+                    <div class="w-20 h-20 flex-shrink-0 mr-4">
+                        <img src="https://cdn-1.webcatalog.io/catalog/hackerrank/hackerrank-icon.png" alt="HackerRank Logo" class="w-full h-full object-contain">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">SQL (Advanced)</h3>
+                        <p class="text-gray-600 mb-1">Issued by HackerRank</p>
+                        <p class="text-gray-600 mb-1">Credential ID bf552c515e68</p>
+                        <p class="text-gray-600 mb-1">Issue Date 2024</p>
+                        <p class="text-gray-600 mb-1">Level Advanced</p>
+                        <p class="text-gray-600 mb-2">Status Active</p>
+                        <a href="https://www.hackerrank.com/certificates/bf552c515e68" target="_blank" class="text-blue-600 hover:text-blue-800 inline-flex items-center">
+                            View Certificate <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Certificate 3 --
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm flex animate-fade-in delay-300">
+                    <div class="w-20 h-20 flex-shrink-0 mr-4">
+                        <img src="https://logos-world.net/wp-content/uploads/2020/09/Microsoft-Logo-2012-present.jpg" alt="Microsoft Logo" class="w-full h-full object-contain">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Data Engineer Career Path</h3>
+                        <p class="text-gray-600 mb-1">Issued by Microsoft Learn</p>
+                        <p class="text-gray-600 mb-1">Program Career Path</p>
+                        <p class="text-gray-600 mb-1">Completion Date April 2025</p>
+                        <p class="text-gray-600 mb-1">Focus Area Data Engineering</p>
+                        <p class="text-gray-600 mb-2">Status Completed</p>
+                        <a href="https://learn.microsoft.com/en-us/plans/p3x0u1w5qm8q5y?sharingId=A6F39542CA497E25" target="_blank" class="text-blue-600 hover:text-blue-800 inline-flex items-center">
+                            View Certificate <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Certificate 4 --
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm flex animate-fade-in delay-400">
+                    <div class="w-20 h-20 flex-shrink-0 mr-4">
+                        <img src="https://images.g2crowd.com/uploads/product/image/social_landscape/social_landscape_5015a6ccbbe12278ba4392c1c0d806be/ibm-envizi-esg-suite.png" alt="IBM Logo" class="w-full h-full object-contain">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Python Project for Data Engineering</h3>
+                        <p class="text-gray-600 mb-1">Issued by IBM via Coursera</p>
+                        <p class="text-gray-600 mb-1">Provider Coursera</p>
+                        <p class="text-gray-600 mb-1">Issuing Organization IBM</p>
+                        <p class="text-gray-600 mb-1">Date Earned March 2025</p>
+                        <p class="text-gray-600 mb-2">Status Verified</p>
+                        <a href="https://coursera.org/share/963d5c4912b1a2355769334652c36481" target="_blank" class="text-blue-600 hover:text-blue-800 inline-flex items-center">
+                            View Certificate <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    -->
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 px-4 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center animate-fade-in">Get In Touch</h2>
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-1/2 animate-fade-in delay-100">
+                    <h3 class="text-xl font-semibold mb-6">Contact Information</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-4 text-blue-600"></i>
+                            <div>
+                                <h4 class="font-medium">Email</h4>
+                                <a href="mailto:xuanduong271104@gmail.com" class="text-gray-600 hover:text-blue-600">xuanduong271104@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-phone mt-1 mr-4 text-blue-600"></i>
+                            <div>
+                                <h4 class="font-medium">Phone</h4>
+                                <a href="tel:+84917837287" class="text-gray-600 hover:text-blue-600">(+84) 917 837 287</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fab fa-linkedin mt-1 mr-4 text-blue-600"></i>
+                            <div>
+                                <h4 class="font-medium">LinkedIn</h4>
+                                <a href="https://www.linkedin.com/in/xuanduongvn/" target="_blank" class="text-gray-600 hover:text-blue-600">linkedin.com/in/xuanduongvn</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fab fa-github mt-1 mr-4 text-blue-600"></i>
+                            <div>
+                                <h4 class="font-medium">GitHub</h4>
+                                <a href="https://github.com/xuanduong2711" target="_blank" class="text-gray-600 hover:text-blue-600">github.com/xuanduong2711</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-4 text-blue-600"></i>
+                            <div>
+                                <h4 class="font-medium">Location</h4>
+                                <p class="text-gray-600">Thu Duc, Ho Chi Minh City</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mt-8 mb-6">Follow Me</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/in/xuanduongvn/" target="_blank" class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 hover:bg-blue-200 transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/xuanduong2711" target="_blank" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-gray-200 transition">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.facebook.com/xuanduong271104/" target="_blank" class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 hover:bg-blue-200 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 animate-fade-in delay-200">
+                    <h3 class="text-xl font-semibold mb-6">Send Me a Message</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"></textarea>
+                        </div>
+                        <button type="submit" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition shadow-md w-full">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 bg-gray-800 text-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p>&copy; 2025 Lư Xuân Dương. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#about" class="hover:text-blue-400 transition">About</a>
+                    <a href="#projects" class="hover:text-blue-400 transition">Projects</a>
+                    <a href="#certificates" class="hover:text-blue-400 transition">Certificates</a>
+                    <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
+                </div>
+            </div>
+            <p class="text-center mt-8 text-gray-400 text-sm">
+                <!-- Built with passion for data engineering and technology -->
+                 Built with a passion for data analysis, business intelligence, and turning data into impactful insights.
+
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Add animation classes when elements come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
