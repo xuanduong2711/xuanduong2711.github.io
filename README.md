@@ -1,4 +1,3 @@
-# xuanduong2711.github.io
 # Hello, I'm Xuan Duong 😄
 
 👨‍💻 A simple guy who loves coding and sharing
