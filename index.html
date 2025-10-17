@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lư Xuân Dương - Data Analytics Portfolio</title>
+    <title>Lư Xuân Dương - Data Engineering Portfolio</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -88,9 +88,9 @@
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center">
             <div class="md:w-1/2 mb-12 md:mb-0 animate-fade-in delay-100">
                 <h1 class="text-4xl md:text-5xl font-bold mb-4">Lư Xuân Dương</h1> 
-                <h2 class="text-2xl md:text-3xl font-semibold mb-6 gradient-text">Data Science Student & Aspiring Data Analysis </h2>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-6 gradient-text">Data Science Student & Aspiring Data Engineer </h2>
                 <p class="text-lg text-gray-600 mb-8 max-w-lg">
-                    Uncovering actionable insights and solving complex data problems through analytical thinking, data visualization, and statistical modeling.
+                    Building scalable data pipelines and robust infrastructure to transform raw data into reliable, analysis-ready assets for data-driven insights.
                 </p>
                 <div class="flex space-x-4">
                     <a href="#projects" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition shadow-md">
@@ -115,12 +115,12 @@
             <h2 class="text-3xl font-bold mb-12 text-center animate-fade-in">About Me</h2>
             <div class="flex flex-col md:flex-row gap-8">
                 <div class="md:w-2/3 animate-fade-in delay-100">
-                    <p class="text-lg text-gray-600 mb-6">
-                        Hello! I'm Lư Xuân Dương, a 21-year-old third-year student at the University of Science, VNU-HCMC, majoring in Data Science. With a deep passion for science and technology, I discovered my enthusiasm for data, logical thinking, and system programming early in my academic journey.
-                    </p>
-                    <p class="text-lg text-gray-600">
-                        This passion has shaped my ambition to become a data analyst, specializing in uncovering insights through data exploration and visualization. Currently, I am focused on strengthening my skills in data analysis, statistical modeling, and business intelligence tools. I am eager to apply my analytical mindset to solve real-world problems, support data-driven decisions, and drive meaningful impact for organizations.
-                    </p>
+                <p class="text-lg text-gray-600 mb-6">
+                Hello! I'm Xuan Duong, a final-year Data Science student at the University of Science, VNU-HCMC. My passion for technology is rooted in system programming and logical problem-solving, which has guided my focus toward the field of Data Engineering.
+            </p>
+            <p class="text-lg text-gray-600">
+                My ambition is to become a Data Engineer, specializing in architecting and automating scalable data pipelines. I am currently focused on mastering core technologies like Python, SQL, Apache Spark, and Docker to build robust data infrastructure. I am eager to apply an engineering mindset to solve complex data challenges and build the reliable foundations that empower organizations to make data-driven decisions.
+            </p>
                 </div>
                 <div class="md:w-1/3 animate-fade-in delay-200">
                     <div class="bg-gray-50 p-6 rounded-xl shadow-sm">
@@ -155,7 +155,30 @@
             <h2 class="text-3xl font-bold mb-12 text-center animate-fade-in">My Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
+
                 <!-- Project 1 -->
+                <div class="project-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition animate-fade-in delay-300">
+                    <h3 class="text-xl font-bold mb-2">CGV ETL Data Pipeline</h3>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">Apache Airflow</span>
+                        <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">Apache Spark</span>
+                        <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">Docker</span>
+                        <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">ETL Pipeline</span>
+                        <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">Selenium</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">Engineered a fully automated ETL pipeline to collect, process, and visualize movie schedules from  80 CGV cinemas nationwide.</p>
+                    <div class="text-sm text-gray-500 mb-4">
+                        <div class="flex justify-between">
+                            <span>Oct 2025</span>
+                            <span>Personal Project</span>
+                        </div>
+                    </div>
+                    <a href="https://github.com/xuanduong2711/cgv_schedule" target="_blank" class="text-blue-600 hover:text-blue-800 inline-flex items-center">
+                        View on GitHub <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                    </a>
+                </div>
+                
+                <!-- Project 2 -->
                 <div class="project-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition animate-fade-in delay-300">
                     <h3 class="text-xl font-bold mb-2">House Price Prediction</h3>
                     <div class="flex flex-wrap gap-2 mb-4">
@@ -177,52 +200,8 @@
                     </a>
                 </div>
                 
-                <!-- Project 2 -->
-                <div class="project-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition animate-fade-in delay-300">
-                    <h3 class="text-xl font-bold mb-2">Body Performance Data Analysis</h3>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Data Analysis</span>
-                        <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">A/B Testing</span>
-                        <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">ANOVA</span>
-                        <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Classification</span>
-                    </div>
-                    <p class="text-gray-600 mb-4">
-                        Applied A/B Testing and one-way ANOVA to evaluate statistical differences in performance across age groups and gender. Built classification models (Multinomial Logistic Regression, LDA, QDA, Random Forest) achieving an F1-score of 74% in predicting training effectiveness. Key insights were visualized to provide actionable recommendations for health professionals.
-                    </p>
-                    <div class="text-sm text-gray-500 mb-4">
-                        <div class="flex justify-between">
-                            <span>March 2024 – April 2024</span>
-                        </div>
-                        <div>Data Analyst</div>
-                    </div>
-                    <a href="https://github.com/xuanduong2711/BODY_PERFORMANCE" target="_blank" class="text-blue-600 hover:text-blue-800 inline-flex items-center">
-                        View on GitHub <i class="fas fa-external-link-alt ml-1 text-xs"></i>
-                    </a>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition animate-fade-in delay-300">
-                    <h3 class="text-xl font-bold mb-2">Financial Sales & Profit Dashboard</h3>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full">Data Visualization</span>
-                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full">Power BI</span>
-                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full">Business Analysis</span>
-                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full">Finance</span>
-                    </div>
-                    <p class="text-gray-600 mb-4">
-                        Built an interactive Power BI dashboard using a financial dataset (Country, Product, Discount Band, Date, Sales, Profit) to analyze business performance. Visualized total sales and profit by country, discount band, and time (monthly/yearly). Uncovered key insights such as top-performing products, high-profit segments, and the revenue impact of discount strategies.
-                    </p>
-                    <div class="text-sm text-gray-500 mb-4">
-                        <div class="flex justify-between">
-                            <span>May 2025</span>
-                            <span>Individual Project</span>
-                        </div>
-                        <div>Business Intelligence Analyst</div>
-                    </div>
-                    <a href="https://github.com/xuanduong2711/financial-sales-dashboard" target="_blank" class="text-blue-600 hover:text-blue-800 inline-flex items-center">
-                        View on GitHub <i class="fas fa-external-link-alt ml-1 text-xs"></i>
-                    </a>
-                </div>
+    
+           
 
                                 
             </div>
