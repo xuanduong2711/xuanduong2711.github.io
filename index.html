@@ -14,21 +14,90 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(59, 130, 246, 0.6); }
+        }
+        
+        @keyframes pulse-scale {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+        
         .animate-fade-in {
             animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        .animate-slide-in {
+            animation: slideIn 0.8s ease-out forwards;
+        }
+        
+        .animate-slide-in-right {
+            animation: slideInRight 0.8s ease-out forwards;
+        }
+        
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
         }
         
         .delay-100 { animation-delay: 0.1s; }
         .delay-200 { animation-delay: 0.2s; }
         .delay-300 { animation-delay: 0.3s; }
         .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        .delay-600 { animation-delay: 0.6s; }
         
         /* Custom gradient */
         .gradient-text {
-            background: linear-gradient(90deg, #3b82f6, #10b981);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: #0ea5e9;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        
+        /* Solid color heading */
+        .heading-solid {
+            color: #0ea5e9;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        
+        /* Accent color for highlighting key terms */
+        .accent-highlight {
+            color: #0ea5e9;
+            font-weight: 700;
+        }
+        
+        .accent-green {
+            color: #10b981;
+            font-weight: 700;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .gradient-bg-light {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
         }
         
         /* Smooth scrolling */
@@ -36,14 +105,167 @@
             scroll-behavior: smooth;
         }
         
-        /* Project card hover effect */
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        /* Enhanced Navigation */
+        nav {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95) !important;
         }
         
-        .project-card {
+        nav a {
+            position: relative;
             transition: all 0.3s ease;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #3b82f6, #10b981);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Enhanced Project card hover effect */
+        .project-card {
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .project-card:hover::before {
+            left: 100%;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.25);
+        }
+        
+        .project-card:hover h3 {
+            background: linear-gradient(135deg, #3b82f6, #10b981);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        /* Button styles */
+        .btn-primary {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(14, 165, 233, 0.4);
+        }
+        
+        /* Section titles animation */
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #10b981);
+            transition: width 0.6s ease;
+        }
+        
+        .section-title:hover::after {
+            width: 100%;
+        }
+        
+        /* Skills tag animation */
+        .skill-tag {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-weight: 600;
+            border: 1px solid transparent;
+        }
+        
+        .skill-tag:hover {
+            transform: scale(1.15) rotate(-2deg);
+            background: linear-gradient(135deg, #0ea5e9, #10b981) !important;
+            color: white !important;
+            box-shadow: 0 8px 16px rgba(14, 165, 233, 0.4);
+        }
+        
+        /* Hero section enhancement */
+        .hero-glow {
+            animation: glow 3s ease-in-out infinite;
+        }
+        
+        /* Input focus styles */
+        input:focus, textarea:focus {
+            transition: all 0.3s ease;
+            transform: scale(1.02);
+        }
+        
+        /* Badge animation */
+        .badge {
+            animation: pulse-scale 2s ease-in-out infinite;
+        }
+        
+        /* Link hover effect */
+        .link-hover {
+            position: relative;
+        }
+        
+        .link-hover::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #3b82f6, #10b981);
+            transition: width 0.3s ease;
+        }
+        
+        .link-hover:hover::after {
+            width: 100%;
         }
     </style>
 </head>
@@ -59,6 +281,7 @@
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#about" class="text-gray-600 hover:text-blue-600 transition">About</a>
+                    <a href="#experience" class="text-gray-600 hover:text-blue-600 transition">Experience</a>
                     <a href="#projects" class="text-gray-600 hover:text-blue-600 transition">Projects</a>
                    <!-- <a href="#certificates" class="text-gray-600 hover:text-blue-600 transition">Certificates</a> -->
                     <a href="https://github.com/xuanduong2711" target="_blank" class="flex items-center text-gray-600 hover:text-blue-600 transition">
@@ -75,6 +298,7 @@
         <!-- Mobile menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg">
             <a href="#about" class="block py-2 text-gray-600 hover:text-blue-600 transition">About</a>
+            <a href="#experience" class="block py-2 text-gray-600 hover:text-blue-600 transition">Experience</a>
             <a href="#projects" class="block py-2 text-gray-600 hover:text-blue-600 transition">Projects</a>
             <!-- <a href="#certificates" class="block py-2 text-gray-600 hover:text-blue-600 transition">Certificates</a> -->
             <a href="https://github.com/xuanduong2711" target="_blank" class="block py-2 text-gray-600 hover:text-blue-600 transition">
@@ -84,64 +308,185 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="pt-24 pb-16 md:pt-32 md:pb-24 px-4">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-12 md:mb-0 animate-fade-in delay-100">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">Lư Xuân Dương</h1> 
-                <h2 class="text-2xl md:text-3xl font-semibold mb-6 gradient-text">Data Science Student & Aspiring Data Engineer </h2>
-                <p class="text-lg text-gray-600 mb-8 max-w-lg">
-                    Building scalable data pipelines and robust infrastructure to transform raw data into reliable, analysis-ready assets for data-driven insights.
+    <section class="relative pt-24 pb-16 md:pt-32 md:pb-24 px-4 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+            <div class="absolute top-40 right-10 w-72 h-72 bg-green-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+            <div class="absolute -bottom-8 left-20 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+        </div>
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center relative z-10">
+            <div class="md:w-1/2 mb-12 md:mb-0 animate-slide-in delay-100">
+                <h1 class="text-5xl md:text-6xl font-black mb-4 text-blue-600">
+                    Lư Xuân Dương
+                </h1> 
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-gray-800">
+                    Data Science Student & Aspiring Data Engineer
+                </h2>
+                <p class="text-lg text-gray-600 mb-8 max-w-lg leading-relaxed">
+                    Building <span class="accent-highlight">scalable data pipelines</span> and <span class="accent-highlight">robust infrastructure</span> to transform raw data into reliable, analysis-ready assets for data-driven insights.
                 </p>
-                <div class="flex space-x-4">
-                    <a href="#projects" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition shadow-md">
-                        View Projects
+                <div class="flex flex-wrap gap-4">
+                    <a href="#projects" class="btn-primary px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg hover:shadow-lg hover:shadow-blue-500/50 transition shadow-md font-semibold">
+                        <i class="fas fa-rocket mr-2"></i>View Projects
                     </a>
-                    <a href="#contact" class="px-6 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition">
-                        Contact Me
+                    <a href="#contact" class="px-8 py-3 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition font-semibold link-hover">
+                        <i class="fas fa-envelope mr-2"></i>Contact Me
                     </a>
                 </div>
+                <div class="mt-8 flex gap-6 text-sm">
+                    <div class="animate-fade-in delay-200">
+                        <p class="text-gray-500 text-xs uppercase tracking-wider">Tech Stack</p>
+                        <p class="font-bold text-gray-800">Python • Spark • Kafka</p>
+                    </div>
+                    <div class="animate-fade-in delay-300">
+                        <p class="text-gray-500 text-xs uppercase tracking-wider">Passion</p>
+                        <p class="font-bold text-gray-800">Data Engineering</p>
+                    </div>
+                </div>
             </div>
-            <div class="md:w-1/2 flex justify-center animate-fade-in delay-200">
-                <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
-                    <img src="https://xuanduongvn.github.io/img/image.jpg" alt="Lư Xuân Dương" class="w-full h-full object-cover">
+            <div class="md:w-1/2 flex justify-center animate-float delay-200">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-green-500 rounded-full blur-xl opacity-50"></div>
+                    <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-2xl hero-glow">
+                        <img src="https://xuanduongvn.github.io/img/image.jpg" alt="Lư Xuân Dương" class="w-full h-full object-cover">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-16 px-4 bg-white">
+    <section id="about" class="py-20 px-4 bg-gradient-to-br from-white via-blue-50 to-white">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 text-center animate-fade-in">About Me</h2>
-            <div class="flex flex-col md:flex-row gap-8">
-                <div class="md:w-2/3 animate-fade-in delay-100">
-                <p class="text-lg text-gray-600 mb-6">
-                Hello! I'm Xuan Duong, a final-year Data Science student at the University of Science, VNU-HCMC. My passion for technology is rooted in system programming and logical problem-solving, which has guided my focus toward the field of Data Engineering.
-            </p>
-            <p class="text-lg text-gray-600">
-                My ambition is to become a Data Engineer, specializing in architecting and automating scalable data pipelines. I am currently focused on mastering core technologies like Python, SQL, Apache Spark, and Docker to build robust data infrastructure. I am eager to apply an engineering mindset to solve complex data challenges and build the reliable foundations that empower organizations to make data-driven decisions.
-            </p>
+            <h2 class="text-4xl font-black mb-16 text-center animate-fade-in">
+                <span class="heading-solid">About Me</span>
+            </h2>
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-2/3 animate-slide-in delay-100 space-y-6">
+                    <p class="text-lg text-gray-700 leading-relaxed border-l-4 border-blue-500 pl-6">
+                        Hello! I'm Xuan Duong, a final-year Data Science student at the <span class="accent-highlight">University of Science, VNU-HCMC</span>. My passion for technology is rooted in system programming and logical problem-solving, which has guided my focus toward the field of Data Engineering.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed border-l-4 border-blue-500 pl-6">
+                        My ambition is to become a <span class="accent-highlight">Data Engineer</span>, specializing in architecting and automating scalable data pipelines. I am currently focused on mastering core technologies like <span class="accent-highlight">Python, SQL, Apache Spark, and Docker</span> to build robust data infrastructure. I am eager to apply an engineering mindset to solve complex data challenges and build the reliable foundations that empower organizations to make data-driven decisions.
+                    </p>
                 </div>
-                <div class="md:w-1/3 animate-fade-in delay-200">
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-sm">
-                        <h3 class="text-xl font-semibold mb-4">Education</h3>
-                        <div class="space-y-4">
-                            <div>
-                                <h4 class="font-medium">University of Science, VNU-HCMC</h4>
-                                <p class="text-gray-600">Data Science Major</p>
+                <div class="md:w-1/3 animate-slide-in-right delay-200">
+                    <div class="bg-gradient-to-br from-blue-500 to-blue-600 p-8 rounded-2xl shadow-xl text-white hover:shadow-2xl transition transform hover:scale-105">
+                        <div class="flex items-center justify-center mb-6">
+                            <div class="w-24 h-24 rounded-lg overflow-hidden shadow-lg bg-white p-2">
+                                <img src="https://lh3.googleusercontent.com/d/1MTLCmaOnmJG62dnRAvHdDlJGAa0KIvw_=s500" alt="HCMUS Logo" class="w-full h-full object-contain">
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-6 flex items-center justify-center">
+                            <i class="fas fa-graduation-cap mr-3 text-blue-200"></i>Education
+                        </h3>
+                        <div class="space-y-5">
+                            <div class="pb-4 border-b border-blue-400">
+                                <h4 class="font-bold text-lg mb-1">University of Science, VNU-HCMC</h4>
+                                <p class="text-blue-100 text-sm">Data Science Major</p>
+                            </div>
+                            <div class="pb-4 border-b border-blue-400">
+                                <h4 class="font-bold">Expected Graduation</h4>
+                                <p class="text-blue-100">2026</p>
+                            </div>
+                            <div class="pb-4 border-b border-blue-400">
+                                <h4 class="font-bold">GPA</h4>
+                                <p class="text-blue-100">3.48/4.00</p>
                             </div>
                             <div>
-                                <h4 class="font-medium">Expected Graduation</h4>
-                                <p class="text-gray-600">2026</p>
+                                <h4 class="font-bold">Location</h4>
+                                <p class="text-blue-100"><i class="fas fa-map-marker-alt mr-2"></i>Ho Chi Minh City, Vietnam</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 px-4 bg-gradient-to-br from-white via-purple-50 to-pink-50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-black mb-16 text-center animate-fade-in">
+                <span class="heading-solid">Professional Experience</span>
+            </h2>
+            <div class="space-y-6">
+                <!-- Experience 1: DBA at Sacombank -->
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition p-8 animate-fade-in delay-300 border-l-4 border-blue-500">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-6 gap-6">
+                        <div class="flex gap-4 flex-1">
+                            <div class="flex-shrink-0">
+                                <div class="w-20 h-20 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition transform hover:scale-105">
+                                    <img src="https://cdn.brandfetch.io/idkN2Cakhf/w/2048/h/2048/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1769353139462" alt="Sacombank Logo" class="w-full h-full object-contain bg-white">
+                                </div>
                             </div>
                             <div>
-                                <h4 class="font-medium">GPA</h4>
-                                <p class="text-gray-600">3.48/4.00</p>
+                                <h3 class="text-2xl font-bold text-gray-800 mb-2">
+                                    <i class="fas fa-database text-blue-600 mr-3"></i>Database Administrator (DBA)
+                                </h3>
+                                <p class="text-lg font-semibold text-blue-600">
+                                    Sacombank (Sai Gon Thuong Tin Commercial Joint Stock Bank)
+                                </p>
+                                <p class="text-sm text-gray-500 mt-2">
+                                    <i class="far fa-calendar mr-2"></i><span class="font-semibold">01/2026 – 03/2026</span> (3 months)
+                                </p>
+                            </div>
+                        </div>
+                        <div class="md:text-right">
+                            <p class="text-sm font-bold text-gray-600 bg-blue-100 px-4 py-2 rounded-full inline-block whitespace-nowrap">
+                                <i class="far fa-calendar mr-2"></i>01/2026 – 03/2026
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex gap-4 animate-fade-in delay-400">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-8 w-8 rounded-lg bg-blue-100">
+                                    <i class="fas fa-check text-blue-600"></i>
+                                </div>
                             </div>
                             <div>
-                                <h4 class="font-medium">Location</h4>
-                                <p class="text-gray-600">Ho Chi Minh City, Vietnam</p>
+                                <p class="text-gray-700 leading-relaxed">
+                                    Engineered and optimized <span class="accent-highlight">high-performance ELT pipelines</span> to migrate over <span class="accent-highlight">1,000,000 records daily</span> between Oracle-to-Oracle environments using <span class="accent-highlight">Oracle Data Integrator (ODI)</span>, ensuring seamless data synchronization and minimal downtime.
+                                </p>
                             </div>
+                        </div>
+                        
+                        <div class="flex gap-4 animate-fade-in delay-500">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-8 w-8 rounded-lg bg-blue-100">
+                                    <i class="fas fa-check text-blue-600"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-gray-700 leading-relaxed">
+                                    Leveraged <span class="accent-highlight">Check Knowledge Modules (CKM)</span> to implement <span class="accent-highlight">data quality firewalls</span>, automatically identifying and filtering out <span class="accent-highlight">2% anomalous data</span> to ensure data warehouse integrity and maintain high data quality standards across critical financial systems.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 pt-6 border-t border-gray-200">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-tag px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full font-medium">
+                                <i class="fab fa-java mr-1"></i>Oracle Database
+                            </span>
+                            <span class="skill-tag px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full font-medium">
+                                <i class="fas fa-cogs mr-1"></i>ODI (Data Integrator)
+                            </span>
+                            <span class="skill-tag px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full font-medium">
+                                <i class="fas fa-shield-alt mr-1"></i>Data Quality
+                            </span>
+                            <span class="skill-tag px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full font-medium">
+                                <i class="fas fa-database mr-1"></i>ETL/ELT
+                            </span>
+                            <span class="skill-tag px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full font-medium">
+                                <i class="fas fa-bolt mr-1"></i>Performance Optimization
+                            </span>
+                            <span class="skill-tag px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full font-medium">
+                                <i class="fas fa-chart-bar mr-1"></i>Data Pipeline
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -150,77 +495,92 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-16 px-4 bg-gray-50">
+    <section id="projects" class="py-20 px-4 bg-gradient-to-br from-gray-50 to-white">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 text-center animate-fade-in">My Projects</h2>
+            <h2 class="text-4xl font-black mb-16 text-center animate-fade-in">
+                <span class="heading-solid">My Projects</span>
+            </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
 
-                <!-- Project 1 -->
-                <div class="project-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition animate-fade-in delay-300">
-                    <h3 class="text-xl font-bold mb-2">CGV ETL Data Pipeline</h3>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">Apache Airflow</span>
-                        <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">Apache Spark</span>
-                        <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">Docker</span>
-                        <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">ETL Pipeline</span>
-                        <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">Selenium</span>
-                    </div>
-                    <p class="text-gray-600 mb-4">Engineered a fully automated ETL pipeline to collect, process, and visualize movie schedules from  80 CGV cinemas nationwide.</p>
-                    <div class="text-sm text-gray-500 mb-4">
-                        <div class="flex justify-between">
-                            <span>Oct 2025</span>
-                            <span>Personal Project</span>
+                <!-- Project 1: Real-Time CDC Pipeline (Newest) -->
+                <div class="project-card bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition animate-fade-in delay-300 group">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold">Real-Time CDC Pipeline</h3>
+                        <div class="text-orange-500 text-2xl group-hover:scale-110 transition">
+                            <i class="fas fa-database"></i>
                         </div>
                     </div>
-                    <a href="https://github.com/xuanduong2711/cgv_schedule" target="_blank" class="text-blue-600 hover:text-blue-800 inline-flex items-center">
-                        View on GitHub <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="skill-tag px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full font-medium">Python</span>
+                        <span class="skill-tag px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full font-medium">Spark</span>
+                        <span class="skill-tag px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full font-medium">Kafka</span>
+                        <span class="skill-tag px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full font-medium">Debezium</span>
+                        <span class="skill-tag px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full font-medium">MySQL</span>
+                        <span class="skill-tag px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full font-medium">MongoDB</span>
+                    </div>
+                    <p class="text-gray-600 mb-4 leading-relaxed">Built a <span class="accent-highlight">real-time CDC pipeline</span> to sync data from MySQL to MongoDB using Debezium and Kafka. Optimized for <span class="accent-highlight">large datasets</span> with parallel processing.</p>
+                    <div class="text-sm text-gray-500 mb-4 pb-4 border-b border-gray-200">
+                        <div class="flex justify-between">
+                            <span class="font-semibold text-blue-600"><i class="far fa-calendar mr-2"></i>Feb - March 2026</span>
+                            <span class="px-2 py-1 bg-orange-100 text-orange-700 rounded-full text-xs font-semibold">Latest</span>
+                        </div>
+                    </div>
+                    <a href="https://github.com/xuanduong2711/CDC_Pipeline" target="_blank" class="text-blue-600 hover:text-blue-800 inline-flex items-center font-semibold link-hover">
+                        <i class="fab fa-github mr-2"></i>View on GitHub <i class="fas fa-external-link-alt ml-1 text-xs"></i>
                     </a>
                 </div>
                 
-                <!-- Project 2 -->
-                <div class="project-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition animate-fade-in delay-300">
-                    <h3 class="text-xl font-bold mb-2">House Price Prediction</h3>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">Data Science</span>
-                        <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">LLMs</span>
-                        <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">Feature Extraction</span>
-                        <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">EDA</span>
-                    </div>
-                    <p class="text-gray-600 mb-4">Developed a predictive model to estimate house prices based on collected features, conducting comprehensive EDA and visualization.</p>
-                    <div class="text-sm text-gray-500 mb-4">
-                        <div class="flex justify-between">
-                            <span>May 2024 – June 2024</span>
-                            <span>Team of 4</span>
+                <!-- Project 2: CGV ETL Data Pipeline -->
+                <div class="project-card bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition animate-fade-in delay-400 group">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold">CGV ETL Data Pipeline</h3>
+                        <div class="text-blue-500 text-2xl group-hover:scale-110 transition">
+                            <i class="fas fa-stream"></i>
                         </div>
-                        <div>Team Leader</div>
                     </div>
-                    <a href="https://github.com/xuanduong2711/Duong20232024_khdl" target="_blank" class="text-blue-600 hover:text-blue-800 inline-flex items-center">
-                        View on GitHub <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="skill-tag px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full font-medium">Apache Airflow</span>
+                        <span class="skill-tag px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full font-medium">Apache Spark</span>
+                        <span class="skill-tag px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full font-medium">Docker</span>
+                        <span class="skill-tag px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full font-medium">ETL Pipeline</span>
+                        <span class="skill-tag px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full font-medium">Selenium</span>
+                    </div>
+                    <p class="text-gray-600 mb-4 leading-relaxed">Engineered a fully automated ETL pipeline to collect, process, and visualize movie schedules from <span class="accent-highlight">80 CGV cinemas nationwide</span>.</p>
+                    <div class="text-sm text-gray-500 mb-4 pb-4 border-b border-gray-200">
+                        <div class="flex justify-between">
+                            <span class="font-semibold text-blue-600"><i class="far fa-calendar mr-2"></i>Oct 2025</span>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold">Personal</span>
+                        </div>
+                    </div>
+                    <a href="https://github.com/xuanduong2711/cgv_schedule" target="_blank" class="text-blue-600 hover:text-blue-800 inline-flex items-center font-semibold link-hover">
+                        <i class="fab fa-github mr-2"></i>View on GitHub <i class="fas fa-external-link-alt ml-1 text-xs"></i>
                     </a>
                 </div>
                 
-                <!-- Project 3 -->
-                <div class="project-card bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition animate-fade-in delay-300">
-                    <h3 class="text-xl font-bold mb-2">Real-Time CDC Data Pipeline</h3>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">Python</span>
-                        <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">Apache Spark</span>
-                        <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">Kafka</span>
-                        <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">Debezium</span>
-                        <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">MySQL</span>
-                        <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">MongoDB</span>
-                        <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">Docker</span>
-                    </div>
-                    <p class="text-gray-600 mb-4">Built a real-time Change Data Capture (CDC) pipeline to sync data from MySQL to MongoDB using Debezium, Kafka, and Apache Spark. Automated the setup for multiple tables by dynamically fetching schemas and creating Kafka topics directly from MySQL. Optimized synchronization speed and prevented system overload for large datasets using parallel processing and MongoDB bulk_write.</p>
-                    <div class="text-sm text-gray-500 mb-4">
-                        <div class="flex justify-between">
-                            <span>Feb 2026 – March 2026</span>
-                            <span>Personal Project</span>
+                <!-- Project 3: House Price Prediction (Oldest) -->
+                <div class="project-card bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition animate-fade-in delay-500 group">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold">House Price Prediction</h3>
+                        <div class="text-green-500 text-2xl group-hover:scale-110 transition">
+                            <i class="fas fa-chart-line"></i>
                         </div>
                     </div>
-                    <a href="https://github.com/xuanduong2711/CDC" target="_blank" class="text-blue-600 hover:text-blue-800 inline-flex items-center">
-                        View on GitHub <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="skill-tag px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full font-medium">Data Science</span>
+                        <span class="skill-tag px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full font-medium">LLMs</span>
+                        <span class="skill-tag px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full font-medium">Feature ENG</span>
+                        <span class="skill-tag px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full font-medium">EDA</span>
+                    </div>
+                    <p class="text-gray-600 mb-4 leading-relaxed">Developed a predictive model to estimate house prices based on collected features, conducting <span class="accent-highlight">comprehensive EDA and visualization</span>.</p>
+                    <div class="text-sm text-gray-500 mb-4 pb-4 border-b border-gray-200">
+                        <div class="flex justify-between">
+                            <span class="font-semibold text-blue-600"><i class="far fa-calendar mr-2"></i>May - June 2024</span>
+                            <span class="px-2 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold">Team Lead</span>
+                        </div>
+                    </div>
+                    <a href="https://github.com/xuanduong2711/Duong20232024_khdl" target="_blank" class="text-blue-600 hover:text-blue-800 inline-flex items-center font-semibold link-hover">
+                        <i class="fab fa-github mr-2"></i>View on GitHub <i class="fas fa-external-link-alt ml-1 text-xs"></i>
                     </a>
                 </div>
                 
@@ -314,81 +674,104 @@
 
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 px-4 bg-gray-50">
+    <section id="contact" class="py-20 px-4 bg-gradient-to-br from-blue-50 to-white">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 text-center animate-fade-in">Get In Touch</h2>
-            <div class="flex flex-col md:flex-row gap-12">
-                <div class="md:w-1/2 animate-fade-in delay-100">
-                    <h3 class="text-xl font-semibold mb-6">Contact Information</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <i class="fas fa-envelope mt-1 mr-4 text-blue-600"></i>
-                            <div>
-                                <h4 class="font-medium">Email</h4>
-                                <a href="mailto:xuanduong271104@gmail.com" class="text-gray-600 hover:text-blue-600">xuanduong271104@gmail.com</a>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-phone mt-1 mr-4 text-blue-600"></i>
-                            <div>
-                                <h4 class="font-medium">Phone</h4>
-                                <a href="tel:+84917837287" class="text-gray-600 hover:text-blue-600">(+84) 917 837 287</a>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fab fa-linkedin mt-1 mr-4 text-blue-600"></i>
-                            <div>
-                                <h4 class="font-medium">LinkedIn</h4>
-                                <a href="https://www.linkedin.com/in/xuanduongvn/" target="_blank" class="text-gray-600 hover:text-blue-600">linkedin.com/in/xuanduongvn</a>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fab fa-github mt-1 mr-4 text-blue-600"></i>
-                            <div>
-                                <h4 class="font-medium">GitHub</h4>
-                                <a href="https://github.com/xuanduong2711" target="_blank" class="text-gray-600 hover:text-blue-600">github.com/xuanduong2711</a>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-map-marker-alt mt-1 mr-4 text-blue-600"></i>
-                            <div>
-                                <h4 class="font-medium">Location</h4>
-                                <p class="text-gray-600">Thu Duc, Ho Chi Minh City</p>
-                            </div>
-                        </div>
+            <h2 class="text-4xl font-black mb-4 text-center animate-fade-in">
+                <span class="heading-solid">Get In Touch</span>
+            </h2>
+            <p class="text-center text-gray-600 mb-16 text-lg">Let's connect and create something amazing together</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- Contact Card 1: Email -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition transform hover:scale-105 animate-fade-in delay-100">
+                    <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-envelope text-blue-600 text-2xl"></i>
                     </div>
-                    
-                    <h3 class="text-xl font-semibold mt-8 mb-6">Follow Me</h3>
-                    <div class="flex space-x-4">
-                        <a href="https://www.linkedin.com/in/xuanduongvn/" target="_blank" class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 hover:bg-blue-200 transition">
-                            <i class="fab fa-linkedin-in"></i>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">Email</h3>
+                    <a href="mailto:xuanduong271104@gmail.com" class="text-blue-600 hover:text-blue-800 font-semibold link-hover">
+                        xuanduong271104@gmail.com
+                    </a>
+                </div>
+
+                <!-- Contact Card 2: Phone -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition transform hover:scale-105 animate-fade-in delay-200">
+                    <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-phone text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">Phone</h3>
+                    <a href="tel:+84917837287" class="text-blue-600 hover:text-blue-800 font-semibold link-hover">
+                        (+84) 917 837 287
+                    </a>
+                </div>
+
+                <!-- Contact Card 3: Location -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition transform hover:scale-105 animate-fade-in delay-300">
+                    <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-map-marker-alt text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">Location</h3>
+                    <p class="text-gray-700 font-semibold">
+                        Thu Duc, Ho Chi Minh City, Vietnam
+                    </p>
+                </div>
+            </div>
+
+            <!-- Social Links + Message Form -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Left Side: Social Links -->
+                <div class="animate-slide-in delay-100">
+                    <h3 class="text-2xl font-bold mb-8 text-gray-800">Follow Me</h3>
+                    <div class="space-y-4">
+                        <a href="https://www.linkedin.com/in/xuanduongvn/" target="_blank" class="flex items-center gap-4 p-4 bg-white rounded-xl hover:bg-blue-50 transition shadow-md hover:shadow-lg">
+                            <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center">
+                                <i class="fab fa-linkedin-in text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">LinkedIn</h4>
+                                <p class="text-sm text-gray-600">linkedin.com/in/xuanduongvn</p>
+                            </div>
                         </a>
-                        <a href="https://github.com/xuanduong2711" target="_blank" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-gray-200 transition">
-                            <i class="fab fa-github"></i>
+
+                        <a href="https://github.com/xuanduong2711" target="_blank" class="flex items-center gap-4 p-4 bg-white rounded-xl hover:bg-blue-50 transition shadow-md hover:shadow-lg">
+                            <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center">
+                                <i class="fab fa-github text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">GitHub</h4>
+                                <p class="text-sm text-gray-600">github.com/xuanduong2711</p>
+                            </div>
                         </a>
-                        <a href="https://www.facebook.com/xuanduong271104/" target="_blank" class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 hover:bg-blue-200 transition">
-                            <i class="fab fa-facebook-f"></i>
+
+                        <a href="https://www.facebook.com/xuanduong271104/" target="_blank" class="flex items-center gap-4 p-4 bg-white rounded-xl hover:bg-blue-50 transition shadow-md hover:shadow-lg">
+                            <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center">
+                                <i class="fab fa-facebook-f text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Facebook</h4>
+                                <p class="text-sm text-gray-600">Lư Xuân Dương</p>
+                            </div>
                         </a>
                     </div>
                 </div>
-                
-                <div class="md:w-1/2 animate-fade-in delay-200">
-                    <h3 class="text-xl font-semibold mb-6">Send Me a Message</h3>
-                    <form class="space-y-4">
+
+                <!-- Right Side: Message Form -->
+                <div class="animate-slide-in-right delay-200">
+                    <h3 class="text-2xl font-bold mb-8 text-gray-800">Send Me a Message</h3>
+                    <form class="space-y-5 bg-white p-8 rounded-2xl shadow-lg">
                         <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                            <label for="name" class="block text-sm font-bold text-gray-700 mb-2">Your Name</label>
+                            <input type="text" id="name" placeholder="Enter your name" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-600 focus:outline-none transition" required>
                         </div>
                         <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                            <label for="email" class="block text-sm font-bold text-gray-700 mb-2">Your Email</label>
+                            <input type="email" id="email" placeholder="your.email@example.com" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-600 focus:outline-none transition" required>
                         </div>
                         <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"></textarea>
+                            <label for="message" class="block text-sm font-bold text-gray-700 mb-2">Message</label>
+                            <textarea id="message" rows="4" placeholder="Tell me about your project..." class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-600 focus:outline-none transition resize-none" required></textarea>
                         </div>
-                        <button type="submit" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition shadow-md w-full">
-                            Send Message
+                        <button type="submit" class="btn-primary w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg hover:shadow-lg font-bold transition">
+                            <i class="fas fa-paper-plane mr-2"></i>Send Message
                         </button>
                     </form>
                 </div>
@@ -397,24 +780,44 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 px-4 bg-gray-800 text-white">
+    <footer class="py-12 px-4 bg-gradient-to-r from-gray-800 to-gray-900 text-white">
         <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <p>&copy; 2025 Lư Xuân Dương. All rights reserved.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-blue-400">Lư Xuân Dương</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Data Science student & aspiring Data Engineer passionate about building scalable data solutions.</p>
                 </div>
-                <div class="flex space-x-6">
-                    <a href="#about" class="hover:text-blue-400 transition">About</a>
-                    <a href="#projects" class="hover:text-blue-400 transition">Projects</a>
-                    <a href="#certificates" class="hover:text-blue-400 transition">Certificates</a>
-                    <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#about" class="hover:text-blue-400 transition">About</a></li>
+                        <li><a href="#experience" class="hover:text-blue-400 transition">Experience</a></li>
+                        <li><a href="#projects" class="hover:text-blue-400 transition">Projects</a></li>
+                        <li><a href="#contact" class="hover:text-blue-400 transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Connect</h4>
+                    <div class="flex gap-3">
+                        <a href="https://www.linkedin.com/in/xuanduongvn/" target="_blank" class="w-10 h-10 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-linkedin-in text-white"></i>
+                        </a>
+                        <a href="https://github.com/xuanduong2711" target="_blank" class="w-10 h-10 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-github text-white"></i>
+                        </a>
+                        <a href="https://www.facebook.com/xuanduong271104/" target="_blank" class="w-10 h-10 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-facebook-f text-white"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <p class="text-center mt-8 text-gray-400 text-sm">
-                <!-- Built with passion for data engineering and technology -->
-                 Built with a passion for data analysis, business intelligence, and turning data into impactful insights.
-
-            </p>
+            
+            <div class="border-t border-gray-700 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-gray-400 text-sm">&copy; 2026 Lư Xuân Dương. All rights reserved.</p>
+                    <p class="text-gray-400 text-sm">Built with passion for <span class="text-blue-400">Data Engineering</span> & Technology</p>
+                </div>
+            </div>
         </div>
     </footer>
 
