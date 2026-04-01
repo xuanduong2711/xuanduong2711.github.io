@@ -166,6 +166,7 @@
             background-clip: text;
             color: transparent;
         }
+
         
         /* Button styles */
         .btn-primary {
@@ -191,6 +192,7 @@
             left: 100%;
         }
         
+
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 15px 30px rgba(14, 165, 233, 0.4);
@@ -264,10 +266,8 @@
             background: linear-gradient(90deg, #3b82f6, #10b981);
             transition: width 0.3s ease;
         }
+
         
-        .link-hover:hover::after {
-            width: 100%;
-        }
     </style>
 </head>
 
@@ -349,10 +349,10 @@
                     <a href="#projects" class="btn-primary px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg hover:shadow-lg hover:shadow-blue-500/50 transition shadow-md font-semibold">
                         <i class="fas fa-rocket mr-2"></i>View Projects
                     </a>
-                    <a href="https://xuanduong2711.github.io/cv/cv.pdf" target="_blank" class="px-8 py-3 border-2 border-gray-600 text-gray-600 rounded-lg hover:bg-gray-50 transition font-semibold link-hover">
+                    <a href="https://xuanduong2711.github.io/cv/cv.pdf" target="_blank" class="btn-primary px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg hover:shadow-lg hover:shadow-green-500/50 transition shadow-md font-semibold">
                         <i class="fas fa-eye mr-2"></i>View CV
                     </a>
-                    <a href="#contact" class="px-8 py-3 border-2 border-gray-600 text-gray-600 rounded-lg hover:bg-gray-50 transition font-semibold link-hover">
+                    <a href="#contact" class="btn-primary px-8 py-3 bg-gradient-to-r from-purple-500 to-pink-600 text-white rounded-lg hover:shadow-lg hover:shadow-purple-500/50 transition shadow-md font-semibold">
                         <i class="fas fa-envelope mr-2"></i>Contact Me
                     </a>
                 </div>
@@ -639,24 +639,18 @@
                     </div>
                 </div>
 
-                <!-- Contact Card 2: Phone -->
+
+                <!-- Contact Card 2: Zalo -->
                 <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition transform hover:scale-105 animate-fade-in delay-200">
                     <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
-                        <i class="fas fa-phone text-blue-600 text-2xl"></i>
+                        <i class="fab fa-whatsapp text-blue-600 text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-gray-800">Phone/Zalo</h3>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">Zalo</h3>
                     <a href="tel:+84917837287" class="text-blue-600 hover:text-blue-800 font-semibold link-hover">
                         (+84) 917 837 287
                     </a>
-                    <div class="mt-6 flex justify-between gap-4">
-                        <div class="flex-1">
-                            <p class="text-xs text-gray-500 mb-2 text-center">Phone</p>
-                            <div id="qr-phone" class="bg-gray-100 p-2 rounded-lg"></div>
-                        </div>
-                        <div class="flex-1">
-                            <p class="text-xs text-gray-500 mb-2 text-center">Zalo</p>
-                            <div id="qr-zalo" class="bg-gray-100 p-2 rounded-lg"></div>
-                        </div>
+                    <div class="mt-6 flex justify-center">
+                        <div id="qr-zalo" class="bg-gray-100 p-2 rounded-lg"></div>
                     </div>
                 </div>
 
@@ -818,10 +812,11 @@
                 });
             }
 
-            // Phone QR Code
-            if (document.getElementById('qr-phone')) {
-                new QRCode(document.getElementById('qr-phone'), {
-                    text: 'tel:+84917837287',
+
+            // Zalo QR Code
+            if (document.getElementById('qr-zalo')) {
+                new QRCode(document.getElementById('qr-zalo'), {
+                    text: 'https://zalo.me/84917837287',
                     width: 120,
                     height: 120,
                     colorDark: '#0ea5e9',
