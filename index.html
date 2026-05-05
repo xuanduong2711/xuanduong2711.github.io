@@ -654,15 +654,18 @@
                     </div>
                 </div>
 
-                <!-- Contact Card 3: Location -->
+                <!-- Contact Card 3: TikTok -->
                 <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition transform hover:scale-105 animate-fade-in delay-300">
                     <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
-                        <i class="fas fa-map-marker-alt text-blue-600 text-2xl"></i>
+                        <i class="fab fa-tiktok text-blue-600 text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-gray-800">Location</h3>
-                    <p class="text-gray-700 font-semibold">
-                        Thu Duc, Ho Chi Minh City, Vietnam
-                    </p>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">TikTok</h3>
+                    <a href="https://www.tiktok.com/@clone_data_engineer" target="_blank" class="text-blue-600 hover:text-blue-800 font-semibold link-hover">
+                        @clone_data_engineer
+                    </a>
+                    <div class="mt-6 flex justify-center">
+                        <div id="qr-tiktok-contact" class="bg-gray-100 p-2 rounded-lg"></div>
+                    </div>
                 </div>
             </div>
 
@@ -704,6 +707,17 @@
                             </div>
                             <div id="qr-facebook" class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center cursor-pointer hover:bg-gray-200 transition" title="Click to expand QR"></div>
                         </a>
+
+                        <a href="https://www.tiktok.com/@clone_data_engineer" target="_blank" class="flex items-center gap-4 p-4 bg-white rounded-xl hover:bg-blue-50 transition shadow-md hover:shadow-lg">
+                            <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center">
+                                <i class="fab fa-tiktok text-blue-600 text-xl"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-bold text-gray-800">TikTok</h4>
+                                <p class="text-sm text-gray-600">@clone_data_engineer</p>
+                            </div>
+                            <div id="qr-tiktok" class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center cursor-pointer hover:bg-gray-200 transition" title="Click to expand QR"></div>
+                        </a>
                     </div>
                 </div>
 
@@ -740,6 +754,9 @@
                         </a>
                         <a href="https://www.facebook.com/xuanduong271104/" target="_blank" class="w-10 h-10 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center transition">
                             <i class="fab fa-facebook-f text-white"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@clone_data_engineer" target="_blank" class="w-10 h-10 bg-black hover:bg-gray-700 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-tiktok text-white"></i>
                         </a>
                     </div>
                 </div>
@@ -824,6 +841,17 @@
                 });
             }
 
+            // TikTok Contact QR Code
+            if (document.getElementById('qr-tiktok-contact')) {
+                new QRCode(document.getElementById('qr-tiktok-contact'), {
+                    text: 'https://www.tiktok.com/@clone_data_engineer',
+                    width: 120,
+                    height: 120,
+                    colorDark: '#0ea5e9',
+                    colorLight: '#ffffff'
+                });
+            }
+
             // LinkedIn QR Code
             if (document.getElementById('qr-linkedin')) {
                 new QRCode(document.getElementById('qr-linkedin'), {
@@ -850,6 +878,17 @@
             if (document.getElementById('qr-facebook')) {
                 new QRCode(document.getElementById('qr-facebook'), {
                     text: 'https://www.facebook.com/xuanduong271104/',
+                    width: 100,
+                    height: 100,
+                    colorDark: '#0ea5e9',
+                    colorLight: '#ffffff'
+                });
+            }
+
+            // TikTok QR Code
+            if (document.getElementById('qr-tiktok')) {
+                new QRCode(document.getElementById('qr-tiktok'), {
+                    text: 'https://www.tiktok.com/@clone_data_engineer',
                     width: 100,
                     height: 100,
                     colorDark: '#0ea5e9',
